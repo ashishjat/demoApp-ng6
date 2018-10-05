@@ -1,0 +1,27 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>Angular 6</span>
+    <span class="example-spacer">{{displayVal.val}}</span>
+    <mat-icon class="example-icon">menu</mat-icon>
+
+  </mat-toolbar-row>
+</mat-toolbar>
+
+
+<div class="container-fluid mt-1">
+  <div class="row">
+    <div *ngFor="let val of hero_list" class="col-sm-2">
+    <app-heroes [hero]="val" [display]="displayVal" ></app-heroes>
+    </div>
+    <div class="col-sm-2">
+      <button mat-raised-button color="primary" (click)="addCol()"
+             matTooltip="Add new Column" matTooltipPosition="bottom">Add Row</button>
+    </div>
+  </div>
+</div>
+
+<jqxBarGauge
+    [width]="600" [height]="600" [max]="150"
+    [colorScheme]="'scheme02'" [values]="values">
+</jqxBarGauge>
+

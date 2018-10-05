@@ -1,0 +1,20 @@
+<mat-list role="list">
+
+  <h2 mat-subheader color="success">List</h2>
+  <mat-list-item role="listitem" *ngFor="let val of hero" [class.selected]="val === selectedHero"
+      (click)="selectedHerofunc(val)">
+    <span class="badge">{{val.id}}</span> {{val.name}}
+  </mat-list-item>
+
+  <mat-form-field class="example-form-field" *ngIf="showField">
+    <input matInput type="text" placeholder="Enter Item Name" [(ngModel)]="value" (keydown.enter)="addToList(value)">
+    <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <button *ngIf="!showField" (click)="showFiledFunc()" mat-raised-button color="success" matTooltip="Add new row">Add +</button>
+
+</mat-list>
+
+<app-hero-detail [selectedHero]="selectedHero" ></app-hero-detail>
